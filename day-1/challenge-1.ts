@@ -1,19 +1,19 @@
-import { challengeInput, exampleInput } from './data'
+import { challengeInput, exampleInput } from "./data"
 
 type Lists = {
   list1: number[]
   list2: number[]
 }
 const getSortedLists = (input: string) => {
-  const lists = input.split('\n').reduce(
+  const lists = input.split("\n").reduce(
     (acc: Lists, cur) => {
       if (!cur) return acc
-      const [a, b] = cur.split('   ')
+      const [a, b] = cur.split("   ")
       acc.list1.push(+a)
       acc.list2.push(+b)
       return acc
     },
-    { list1: [], list2: [] }
+    { list1: [], list2: [] },
   )
 
   return { list1: lists.list1.sort(), list2: lists.list2.sort() }

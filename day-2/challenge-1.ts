@@ -1,11 +1,11 @@
-import { challengeInput, exampleInput } from './data'
+import { challengeInput, exampleInput } from "./data"
 
 type Report = number[]
 
 const getReports = (input: string) => {
-  const reports = input.split('\n').reduce((acc: Report[], curr) => {
+  const reports = input.split("\n").reduce((acc: Report[], curr) => {
     if (!curr) return acc
-    const reportWithNumbers = curr.split(' ').map((n) => +n)
+    const reportWithNumbers = curr.split(" ").map((n) => +n)
     acc.push(reportWithNumbers)
     return acc
   }, [])
@@ -14,12 +14,12 @@ const getReports = (input: string) => {
 }
 
 const isAlwaysIncreasingOrDecreasing = (report: Report) => {
-  const originalString = report.join('')
-  const sortedString = report.sort((a, b) => a - b).join('')
+  const originalString = report.join("")
+  const sortedString = report.sort((a, b) => a - b).join("")
   const reverseString = report
     .sort((a, b) => b + a)
     .reverse()
-    .join('')
+    .join("")
   return originalString === sortedString || originalString === reverseString
 }
 

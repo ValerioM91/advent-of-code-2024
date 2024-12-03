@@ -14,7 +14,7 @@ class SafeReports {
   private getReports = () => {
     const reports = this.input.split("\n").reduce((acc: Report[], curr) => {
       if (!curr) return acc
-      const reportWithNumbers = curr.split(" ").map(n => +n)
+      const reportWithNumbers = curr.split(" ").map((n) => +n)
       acc.push(reportWithNumbers)
       return acc
     }, [])
@@ -78,7 +78,7 @@ class SafeReports {
 
   private getSafeReports = () => {
     let safeQuantity = 0
-    this.reports.forEach(report => {
+    this.reports.forEach((report) => {
       return this.isValidReport(report) && safeQuantity++
     })
     return safeQuantity
