@@ -1,7 +1,7 @@
-import { challengeInput, exampleInput } from './data'
+import { challengeInput, exampleInput } from "./data"
 
 type Report = number[]
-type Direction = 'increasing' | 'decreasing'
+type Direction = "increasing" | "decreasing"
 
 class SafeReports {
   private reports: Report[]
@@ -12,9 +12,9 @@ class SafeReports {
   }
 
   private getReports = () => {
-    const reports = this.input.split('\n').reduce((acc: Report[], curr) => {
+    const reports = this.input.split("\n").reduce((acc: Report[], curr) => {
       if (!curr) return acc
-      const reportWithNumbers = curr.split(' ').map((n) => +n)
+      const reportWithNumbers = curr.split(" ").map(n => +n)
       acc.push(reportWithNumbers)
       return acc
     }, [])
@@ -22,7 +22,7 @@ class SafeReports {
   }
 
   private getDifference = (current: number, next: number, direction: Direction) =>
-    direction === 'increasing' ? next - current : current - next
+    direction === "increasing" ? next - current : current - next
 
   private isDifferenceOK = (difference: number) => difference > 0 && difference <= 3
 
@@ -31,10 +31,10 @@ class SafeReports {
     report.forEach((curr, index) => {
       const next = report[index + 1]
       if (next) {
-        next - curr > 0 ? sumOfDifferences++ : sumOfDifferences--
+        return next - curr > 0 ? sumOfDifferences++ : sumOfDifferences--
       }
     })
-    return sumOfDifferences > 0 ? 'increasing' : 'decreasing'
+    return sumOfDifferences > 0 ? "increasing" : "decreasing"
   }
 
   private isValidReport = (report: Report) => {
@@ -78,8 +78,8 @@ class SafeReports {
 
   private getSafeReports = () => {
     let safeQuantity = 0
-    this.reports.forEach((report) => {
-      this.isValidReport(report) && safeQuantity++
+    this.reports.forEach(report => {
+      return this.isValidReport(report) && safeQuantity++
     })
     return safeQuantity
   }
